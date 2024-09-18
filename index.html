@@ -65,14 +65,13 @@
                                                 </ul>
                                             </li>
                                             <li><a href="blog.html">Testimonial</a>
-                                                <li><a href="about.html">About Us</a></li>
-                                               
+                                                <li><a href="about.html">About Us</a></li> 
                                             
                                         </ul>
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-15">
-                                    <a href="Appointment.html" class="btn header-btn">Make an Appointment</a>
+                                    <a id="openPopupBtn" class="btn header-btn">Make an Appointment</a>
                                 </div>
                             </div>
                         </div>   
@@ -82,13 +81,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
         <!-- Header End -->
     </header>
     <main>
         <!--? Slider Area Start-->
-        <div class="slider-area" style="width: 1263px; height: 596px;">
+        <div class="slider-area" style="height: 596px;">
             <div class="slider-active dot-style">
                 <!-- Slider Single -->
                 <div class="single-slider d-flex align-items-left slider-height">
@@ -146,6 +145,38 @@
 <!--? video_start -->
 <!-- About Law End-->
 </main>
+
+<!-- The Popup -->
+<div id="myPopup" class="popup">
+<div class="popup-content">
+<span class="close">&times;</span>
+<div>
+    <h2>Book an Appointment</h2>
+    <div class="message" id="message"></div>
+    <form id="appointmentForm">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="messageText" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
 <footer>
     <div class="footer-wrappr section-bg3" >
         <div class="footer-area footer-padding ">
@@ -153,10 +184,6 @@
                 <div class="row justify-content-between">
                     <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12">
                         <div class="single-footer-caption mb-50">
-                            <!-- logo -->   
-                            <div class="footer-logo mb-25">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
-                            </div>
                             <d iv class="header-area">
                                 <div class="main-header main-header2">
                                     <div class="menu-main d-flex align-items-center justify-content-start">
@@ -305,6 +332,28 @@
             document.getElementById('message').innerText = 'Failed to send the email. Please try again.';
         });
     });
+    
+        // Get the popup, button, and close elements
+        var popup = document.getElementById("myPopup");
+        var openBtn = document.getElementById("openPopupBtn");
+        var closeBtn = document.querySelector(".close");
+    
+        // Open the popup when the button is clicked
+        openBtn.onclick = function() {
+          popup.style.display = "block";
+        }
+    
+        // Close the popup when the close button (X) is clicked
+        closeBtn.onclick = function() {
+          popup.style.display = "none";
+        }
+    
+        // Close the popup when the user clicks outside the popup content
+        window.onclick = function(event) {
+          if (event.target == popup) {
+            popup.style.display = "none";
+          }
+        }
 </script>
 
 </body>
