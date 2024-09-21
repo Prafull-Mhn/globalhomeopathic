@@ -63,31 +63,62 @@
 </head>
 
 <body>
-    <div class="appointment-form">
-        <h2>Book an Appointment</h2>
-        <div class="message" id="message"></div>
-        <form id="appointmentForm">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="text" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="messageText" name="message" rows="5" required></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+ <!-- The Popup -->
+ <div id="myPopup" class="popup">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <div>
+            <h2>Book an Appointment</h2>
+            <div class="message" id="message"></div>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <div class="form-group width-100">
+                    <label for="city">Select City:</label>
+                    <select id="city" class="width-100" name="city">
+                        <option value="noida">Noida</option>
+                        <option value="lucknow">Lucknow</option>
+                        <option value="delhi">Delhi</option>
+                    </select>
+                </div>
+
+                <!-- Date and Time in a Single Row -->
+                <div class="form-row width-100 ">
+                    <!-- Date Picker -->
+                    <div class="form-group date-row date-option">
+                        <label for="date">Select Date:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <!-- Time Picker -->
+                    <div class="form-group date-row time-option">
+                        <label for="time">Select Time:</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="messageText" name="message" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
     <script>
         document.getElementById('appointmentForm').addEventListener('submit', function (event) {
@@ -97,7 +128,9 @@
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('messageText').value;
-
+            const city = document.getElementById('city').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
             fetch('https://appointment-skc5.onrender.com/send-email', {
                 method: 'POST',
                 headers: {
@@ -107,7 +140,10 @@
                     name: name,
                     email: email,
                     phone: phone,
-                    message: message
+                    message: message,
+                    // city: city,
+                    // date: date,
+                    // time: time,
                 })
             })
                 .then(response => response.json())
@@ -119,6 +155,33 @@
                     document.getElementById('message').innerText = 'Failed to send the email. Please try again.';
                 });
         });
+
+        // Get the popup, button, and close elements
+        var popup = document.getElementById("myPopup");
+        var openBtn = document.getElementById("openPopupBtn");
+        var openBtn2 = document.getElementById("openPopupBtn2");
+        var closeBtn = document.querySelector(".close");
+
+        // Open the popup when the button is clicked
+        openBtn.onclick = function () {
+            popup.style.display = "block";
+        }
+        // Open the popup when the button is clicked
+        openBtn2.onclick = function () {
+            popup.style.display = "block";
+        }
+
+        // Close the popup when the close button (X) is clicked
+        closeBtn.onclick = function () {
+            popup.style.display = "none";
+        }
+
+        // Close the popup when the user clicks outside the popup content
+        window.onclick = function (event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
     </script>
 </body>
 
