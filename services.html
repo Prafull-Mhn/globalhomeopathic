@@ -50,8 +50,13 @@
                             <div class="logo">
                                 <a href="index.html"><img src="assets/img/logo/logo.png" style="width:100px;"
                                         alt=""></a>
+                                <div class="header-right-btn f-right d-lg-block ml-15 mobile-responsive">
+                                    <a id="openPopupBtn" class="btn header-btn">Make an Appointment</a>
+                                </div>
                             </div>
                         </div>
+
+
                         <div class="col-xl-10 col-lg-10 col-md-10">
                             <div class="menu-main d-flex align-items-center justify-content-end">
                                 <!-- Main-menu -->
@@ -73,7 +78,7 @@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-15">
-                                    <a id="openPopupBtn" class="btn header-btn">Make an Appointment</a>
+                                    <a id="openPopupBtn2" class="btn header-btn">Make an Appointment</a>
                                 </div>
                             </div>
                         </div>
@@ -291,10 +296,35 @@
                         <label for="phone">Phone Number</label>
                         <input type="text" id="phone" name="phone" required>
                     </div>
+                    <div class="form-group width-100">
+                        <label for="city">Select City:</label>
+                        <select id="city" class="width-100" name="city">
+                            <option value="noida">Noida</option>
+                            <option value="lucknow">Lucknow</option>
+                            <option value="delhi">Delhi</option>
+                        </select>
+                    </div>
+
+                    <!-- Date and Time in a Single Row -->
+                    <div class="form-row width-100 ">
+                        <!-- Date Picker -->
+                        <div class="form-group date-row date-option">
+                            <label for="date">Select Date:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <!-- Time Picker -->
+                        <div class="form-group date-row time-option">
+                            <label for="time">Select Time:</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="message">Your Message</label>
                         <textarea id="messageText" name="message" rows="5" required></textarea>
                     </div>
+
                     <div class="form-group">
                         <button type="submit">Submit</button>
                     </div>
@@ -446,7 +476,9 @@
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('messageText').value;
-
+            const city = document.getElementById('city').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
             fetch('https://appointment-skc5.onrender.com/send-email', {
                 method: 'POST',
                 headers: {
@@ -456,7 +488,10 @@
                     name: name,
                     email: email,
                     phone: phone,
-                    message: message
+                    message: message,
+                    // city: city,
+                    // date: date,
+                    // time: time,
                 })
             })
                 .then(response => response.json())
@@ -472,10 +507,20 @@
         // Get the popup, button, and close elements
         var popup = document.getElementById("myPopup");
         var openBtn = document.getElementById("openPopupBtn");
+        var openBtn2 = document.getElementById("openPopupBtn2");
         var closeBtn = document.querySelector(".close");
 
         // Open the popup when the button is clicked
         openBtn.onclick = function () {
+            popup.style.display = "block";
+        }
+        // Open the popup when the button is clicked
+        openBtn2.onclick = function () {
+            popup.style.display = "block";
+        }
+
+        // Open the popup automatically when the page loads
+        window.onload = function () {
             popup.style.display = "block";
         }
 
