@@ -19,9 +19,9 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
             email: email,
             phone: phone,
             message: message,
-            // city: city,
-            // date: date,
-            // time: time,
+            city: city,
+             date: date,
+             time: time,
         })
     })
     .then(response => response.json())
