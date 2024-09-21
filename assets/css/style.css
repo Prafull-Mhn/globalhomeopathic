@@ -3067,7 +3067,7 @@ hr {
     .popup-content {
         /* margin: 20% 0 !important; */
         width: 360px !important;
-        padding: 6px 12px;
+        padding: 6px 12px !important;
     }
 
     .btn {
