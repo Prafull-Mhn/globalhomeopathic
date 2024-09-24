@@ -1004,69 +1004,18 @@
 	<!-- Jquery Plugins, main Jquery -->
 	<script src="./assets/js/plugins.js"></script>
 	<script src="./assets/js/main.js"></script>
+	
+    <script src="./assets/js/popup.js"></script>
 	<script>
-        document.getElementById('appointmentForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('messageText').value;
-            const city = document.getElementById('city').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            fetch('https://appointment-skc5.onrender.com/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    message: message,
-                    // city: city,
-                    // date: date,
-                    // time: time,
-                })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('message').innerText = data.message;
-                    document.getElementById('appointmentForm').reset();
-                })
-                .catch(error => {
-                    document.getElementById('message').innerText = 'Failed to send the email. Please try again.';
-                });
-        });
-
-        // Get the popup, button, and close elements
-        var popup = document.getElementById("myPopup");
-        var openBtn = document.getElementById("openPopupBtn");
-        var openBtn2 = document.getElementById("openPopupBtn2");
-        var closeBtn = document.querySelector(".close");
-
-        // Open the popup when the button is clicked
-        openBtn.onclick = function () {
-            popup.style.display = "block";
-        }
-        // Open the popup when the button is clicked
-        openBtn2.onclick = function () {
-            popup.style.display = "block";
-        }
-
-        // Close the popup when the close button (X) is clicked
-        closeBtn.onclick = function () {
-            popup.style.display = "none";
-        }
-
-        // Close the popup when the user clicks outside the popup content
-        window.onclick = function (event) {
-            if (event.target == popup) {
-                popup.style.display = "none";
-            }
-        }
-    </script>
+		openBtn2.onclick = function () {
+		popup.style.display = "block";
+	}
+	
+	closeBtn.onclick = function () {
+		popup.style.display = "none";
+	}
+	
+	</script>
 </body>
 
 </html>

@@ -8,7 +8,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
     const city = document.getElementById('city').value;
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
-    
+
     fetch('https://appointment-skc5.onrender.com/send-email', {
         method: 'POST',
         headers: {
@@ -20,18 +20,18 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
             phone: phone,
             message: message,
             city: city,
-             date: date,
-             time: time,
+            date: date,
+            time: time,
         })
     })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('message').innerText = data.message;
-        document.getElementById('appointmentForm').reset();
-    })
-    .catch(error => {
-        document.getElementById('message').innerText = 'Failed to send the email. Please try again.';
-    });
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('message').innerText = data.message;
+            document.getElementById('appointmentForm').reset();
+        })
+        .catch(error => {
+            document.getElementById('message').innerText = 'Failed to send the email. Please try again.';
+        });
 });
 
 // Popup logic
@@ -52,13 +52,14 @@ openBtn2.onclick = function () {
     popup.style.display = "block";
 }
 
+closeBtn.onclick = function () {
+    popup.style.display = "none";
+}
+
+
 window.onload = function () {
     popup.style.display = "block";
     autoSlide();
-}
-
-closeBtn.onclick = function () {
-    popup.style.display = "none";
 }
 
 window.onclick = function (event) {
@@ -66,5 +67,3 @@ window.onclick = function (event) {
         popup.style.display = "none";
     }
 }
-
-
