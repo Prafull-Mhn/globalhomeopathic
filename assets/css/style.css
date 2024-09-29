@@ -7049,7 +7049,7 @@ del {
     margin-bottom: 50px;
 }
 
-.doctors {
+.doctors { 
     img {
         width: 250px !important;
         height: 250px !important;
@@ -7068,8 +7068,12 @@ del {
 .map-area{
     display: grid;
     grid-template-columns: 50% 50%;
+    gap: 8px;
 }
 
+.show-map{
+    height: 300px;
+}
 
 /* Media query for tab screens */
 @media (max-width: 1200px) {
