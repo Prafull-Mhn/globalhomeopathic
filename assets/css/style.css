@@ -325,10 +325,12 @@ hr {
     padding-top: 120px;
     padding-bottom: 120px
 }
+
 .map-section-padding {
     padding-top: 120px;
     padding-bottom: 0;
 }
+
 .separator {
     border-top: 1px solid #f2f2f2
 }
@@ -3627,8 +3629,9 @@ hr {
     position: relative;
     z-index: 1;
     border-radius: 0 0 0 50px;
-    .cat-icon img{
-        width:250px !important;
+
+    .cat-icon img {
+        width: 250px !important;
         height: 250px !important;
     }
 }
@@ -6975,9 +6978,10 @@ del {
 
 .slide {
     width: 100%;
-    height: 600px;   
-    img{
-        height: 600px ;
+    height: 600px;
+
+    img {
+        height: 600px;
     }
 }
 
@@ -7047,61 +7051,81 @@ del {
     .navigation button {
         padding: 5px;
     }
-}
 
-.our-doctors {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 500;
-    margin-bottom: 50px;
-}
+    .slide {
+        height: 300px;
 
-.doctors { 
-    img {
-        width: 250px !important;
-        height: 250px !important;
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        -webkit-transition: .3s ease-in-out;
-        transition: .3s ease-in-out;
-    }
-    .cat-icon:hover img {
-        -webkit-transform: scale(1.3);
-        transform: scale(1.3);
+        img {
+            height: 300px;
+        }
     }
 
-}
+    .wantToWork-area {
+        padding-top: 50px;
+    }
 
-.map-area{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 8px;
-}
-
-.show-map{
-    height: 300px;
-}
-
-/* Media query for tab screens */
-@media (max-width: 1200px) {
-    .map-area{
-        grid-template-columns: 100%;
+    .contact-info {
+        margin-bottom: 0px;
+        span {
+            display: contents;
+        }
     }
 }
-
-.doctor-details{
-    h5{
-        font-size: 20px !important;
+    .our-doctors {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 50px;
     }
-        font-size: 16px ;
-        margin-bottom: 12px;
-}
 
+    .doctors {
+        img {
+            width: 250px !important;
+            height: 250px !important;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
 
-.contact-info{
-    span{
+        .cat-icon:hover img {
+            -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+
+    }
+
+    .map-area {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        gap: 8px;
+    }
+
+    .show-map {
+        height: 300px;
+    }
+
+    /* Media query for tab screens */
+    @media (max-width: 1200px) {
+        .map-area {
+            grid-template-columns: 100%;
+        }
+    }
+
+    .doctor-details {
+        h5 {
+            font-size: 20px !important;
+        }
+
         font-size: 16px;
-        float: right;
-        color:#5AAC4E;
+        margin-bottom: 12px;
     }
-}
+
+
+    .contact-info {
+        span {
+            font-size: 16px;
+            float: right;
+            color: #5AAC4E;
+        }
+    }
