@@ -3619,7 +3619,7 @@ hr {
 .service-area .single-cat {
     background: #5AAC4E;
     border-radius: 6px;
-    padding: 41px 22px;
+    padding: 8px 8px;
     -webkit-transition: .4s;
     -moz-transition: .4s;
     -o-transition: .4s;
@@ -3647,13 +3647,13 @@ hr {
 }
 
 .service-area .single-cat .cat-icon {
-    margin-bottom: 31px
+    margin-bottom: 12px
 }
 
 .service-area .single-cat .cat-cap h5>a {
     font-size: 20px;
     font-weight: 500;
-    margin-bottom: 21px;
+    margin-bottom: 12px;
     display: block;
     -webkit-transition: .2s;
     -moz-transition: .2s;
@@ -7095,4 +7095,13 @@ del {
     }
         font-size: 16px ;
         margin-bottom: 12px;
+}
+
+
+.contact-info{
+    span{
+        font-size: 16px;
+        float: right;
+        color:#5AAC4E;
+    }
 }
