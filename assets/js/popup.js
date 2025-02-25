@@ -9,7 +9,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
-    fetch('https://paisapay-dev.algoskytech.com/api/Common/sendEmail', {
+    fetch('https://appointment-skc5.onrender.com/send-email', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
