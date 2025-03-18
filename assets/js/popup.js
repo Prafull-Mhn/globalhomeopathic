@@ -14,6 +14,9 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
     const selectedHour = parseInt(selectedTime[0], 10);
     const selectedMinute = parseInt(selectedTime[1], 10);
 
+    // Set the selected time on the selectedDate
+    selectedDate.setHours(selectedHour, selectedMinute, 0, 0);
+
  // Get the current date and time
  const now = new Date();
 
