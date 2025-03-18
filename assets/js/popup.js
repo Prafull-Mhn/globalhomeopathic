@@ -39,7 +39,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
     }
 
 
-    fetch('https://localhost/api/Common/sendEmail', {
+    fetch('https://paisapay-dev.algoskytech.com/api/Common/sendEmail', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
