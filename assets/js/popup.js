@@ -19,7 +19,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
 
  // Check if the selected date and time are in the past
  if (selectedDate <= now) {
-     alert("Appointments cannot be booked for past dates or times. Please select a future date and time.");
+     alert("Appointments cannot be booked for past date or time. Please select a future date and time.");
      return;
  }
 
