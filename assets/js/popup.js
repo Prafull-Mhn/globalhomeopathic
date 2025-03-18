@@ -9,7 +9,37 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
-    fetch('https://paisapay-dev.algoskytech.com/api/Common/sendEmail', {
+    const selectedDate = new Date(date);
+    const selectedTime = time.split(':'); // Split time into hours and minutes
+    const selectedHour = parseInt(selectedTime[0], 10);
+    const selectedMinute = parseInt(selectedTime[1], 10);
+
+ // Get the current date and time
+ const now = new Date();
+
+ // Check if the selected date and time are in the past
+ if (selectedDate <= now) {
+     alert("Appointments cannot be booked for past dates or times. Please select a future date and time.");
+     return;
+ }
+
+    // Check if the selected date is Sunday
+    if (selectedDate.getDay() === 0) {
+        alert("Appointments cannot be booked on Sunday. Please select another date.");
+        return;
+    }
+
+    // Check if the selected time is within the allowed time slots
+    const isMorningSlot = selectedHour >= 10 && selectedHour < 13;
+    const isEveningSlot = selectedHour >= 18 && selectedHour < 21;
+
+    if (!isMorningSlot && !isEveningSlot) {
+        alert("Appointments can only be booked between 10 AM to 1 PM or 6 PM to 9 PM. Please select a valid time.");
+        return;
+    }
+
+
+    fetch('https://localhost/api/Common/sendEmail', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -32,6 +62,8 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
         .catch(error => {
             document.getElementById('message').innerText = 'Failed to send the email. Please try again.';
         });
+       
+
 });
 
 // Popup logic
@@ -40,6 +72,8 @@ var openBtn = document.getElementById("openPopupBtn");
 var openBtn2 = document.getElementById("openPopupBtn2");
 var service = document.getElementById("takeSerivices");
 var closeBtn = document.querySelector(".close");
+
+
 
 openBtn.onclick = function () {
     popup.style.display = "block";
